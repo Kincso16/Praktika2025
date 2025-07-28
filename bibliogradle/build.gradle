@@ -3,6 +3,7 @@ plugins {
     //id 'application'
     id 'org.springframework.boot' version '3.5.3'
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'jacoco'
 }
 
 group = 'edu.itplusz.bibliospring'
@@ -25,7 +26,16 @@ application{
     mainClassName='edu.itplusz.bibliospring.backend.Main'
 }*/
 
-
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required.set(false)
+        csv.required.set(false)
+        html.outputLocation.set(layout.buildDirectory.dir("coverage"))
+    }
 }

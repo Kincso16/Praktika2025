@@ -11,20 +11,20 @@ import java.security.NoSuchAlgorithmException;
 @Component
 @Profile("JDBC")
 public class PasswordEncrypterImpl implements PasswordEncrypter {
-    @Override
-    public String hashPassword(String password, String salt){
+    public String hashPassword(String password, String salt) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-            byte[] input = (password + salt).getBytes();
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
 
-            messageDigest.reset();
-            messageDigest.update(input);
-            byte[] output = messageDigest.digest();
-            StringBuffer stringBuffer = new StringBuffer();
+            byte[] input = (password + salt).getBytes();
+            md.reset();
+            md.update(input);
+
+            byte[] output = md.digest();
+            StringBuffer sb = new StringBuffer();
             for (byte out : output) {
-                stringBuffer.append(String.format("%02X",out));
+                sb.append(String.format("%02X",out));
             }
-            return stringBuffer.toString();
+            return sb.toString();
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
