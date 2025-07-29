@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 @Component
-@Profile("JDBC")
+
 public class PasswordEncrypterImpl implements PasswordEncrypter {
     public String hashPassword(String password, String salt) {
         try {
