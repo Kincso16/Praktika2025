@@ -27,8 +27,8 @@ public class JpaUserDAO extends BaseDAOBean<User,Long> implements UserDAO {
         query.setParameter("username",username);
         return query.getSingleResult();
     }catch(PersistenceException e){
-        LOG.error("findbyid failed",e);
-        throw new RepositoryException("findbyid failed",e);
+        LOG.error("findbyusername failed",e);
+        throw new RepositoryException("findbyusername failed",e);
     }
     }
 }

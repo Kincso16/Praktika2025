@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="users")
 public class User extends edu.itplusz.bibliospring.backend.model.BaseEntity {
-    @Column(name="username", unique=true, nullable=false)
+    @Column(name="userName", unique=true, nullable=false)
     private String userName;
     @Column(name="password", nullable=false)
     private String password;

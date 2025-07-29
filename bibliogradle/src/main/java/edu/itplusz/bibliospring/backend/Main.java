@@ -28,7 +28,7 @@ public class Main {
         testUser.setPassword("cica");
         System.out.println(userDAO.findByID(1L));
         System.out.println(userDAO.findAll());
-        System.out.println(userDAO.findByUsername("Lajoska"));
+        System.out.println(userDAO.findByUsername("admin1"));
         /*
             loginService.register(testUser);
             testUser.setPassword("cica12334");
